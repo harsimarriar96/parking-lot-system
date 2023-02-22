@@ -19,7 +19,7 @@ const addParkingLot = (floorSize, floors) => {
                     lotId,
                     size: key,
                     isOccupied: false,
-                    floor: j
+                    floor: j,
                 })
             }
         })
@@ -65,6 +65,7 @@ const enterCar = (carType, parkingLotId) => {
         }
     })
 
+    // Using slot.id as bayId since we'll be just incrementing that as well, in real solutions, it would differ.
     return selectedSlot ? `${selectedSlot.floor}:${selectedSlot.id}` : 'No Slot';
 }
 
