@@ -9,9 +9,9 @@ import { routes } from '@/constants/routes';
 
 
 enum Options {
-  ADD_PARKING,
-  ENTER_CAR,
-  EXIT_CAR
+  ADD_PARKING = 'ADD_PARKING',
+  ENTER_CAR = 'ENTER_CAR',
+  EXIT_CAR = 'EXIT_CAR'
 }
 
 export default function Home() {
@@ -30,12 +30,13 @@ export default function Home() {
 
   return (
     <>
-      <div className="h-screen w-full bg-blue-100">
-        <div className="flex flex-col items-center justify-center h-full">
           <h1 className='text-6xl mb-8 text-blue-900 font-bold'>What do you want to do?</h1>
           {/* Checkboxes section start */}
           <div className="mb-8 flex space-x-10">
-            <Checkbox isChecked={selectedOption === Options.ADD_PARKING} onClick={() => setSelectedOption(Options.ADD_PARKING)}>
+            <Checkbox isChecked={selectedOption === Options.ADD_PARKING} onClick={() => {
+              console.log({a: Options.ADD_PARKING})
+              setSelectedOption(Options.ADD_PARKING)
+            }}>
               <PlusIcon className="h-40 w-40" />
               <p className="text-2xl uppercase font-bold">Add Parking Lot</p>
             </Checkbox>
@@ -49,9 +50,7 @@ export default function Home() {
             </Checkbox>
           </div>
           {/* Checkboxes section end. */}
-          <Button onClick={onClickGo}>Go</Button>
-        </div>
-      </div>
+          <div className="flex justify-center"><Button onClick={onClickGo} isDisabled={!selectedOption}>Go</Button></div>
     </>
   )
 }
