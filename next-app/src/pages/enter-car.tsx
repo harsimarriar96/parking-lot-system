@@ -54,7 +54,7 @@ const EnterCar = () => {
 
             await localStorage.setItem('slots', JSON.stringify(allSlots));
             await localStorage.setItem('lastCarId', carId.toString());
-            await localStorage.setItem('cars', JSON.stringify(cars.length ? [...cars, ...newCar] : []));
+            await localStorage.setItem('cars', JSON.stringify(cars.length ? [...cars, ...newCar] : [newCar]));
 
             setMessage(`Added car to ${selectedSlotToPark.floor}:${selectedSlotToPark.id}`);
         } else {
