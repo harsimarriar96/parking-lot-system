@@ -34,7 +34,6 @@ export default function Home() {
           {/* Checkboxes section start */}
           <div className="mb-8 flex space-x-10">
             <Checkbox isChecked={selectedOption === Options.ADD_PARKING} onClick={() => {
-              console.log({a: Options.ADD_PARKING})
               setSelectedOption(Options.ADD_PARKING)
             }}>
               <PlusIcon className="h-40 w-40" />
